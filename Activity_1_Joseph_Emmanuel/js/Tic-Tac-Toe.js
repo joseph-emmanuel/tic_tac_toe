@@ -57,14 +57,21 @@ function clicksDone(card) {
   }
   //   card.style.backgroundColor = "gray";
   card.classList.add("disabled");
+
+  case3Mathches();
+}
+
+function case3Mathches() {
   for (let index = 0; index < winningConditions.length; index++) {
     if (JSON.stringify(winningConditions[index]) == JSON.stringify(xArray)) {
-      document.getElementById("mainHead").innerHTML = "User 1 won the game";
+      document.getElementById("mainHead").innerHTML =
+        "User took 'X' won the game";
       document.getElementById("mainHead").style.visibility = "visible";
     } else if (
       JSON.stringify(winningConditions[index]) == JSON.stringify(oArray)
     ) {
-      document.getElementById("mainHead").innerHTML = "User 2 won the game";
+      document.getElementById("mainHead").innerHTML =
+        "User took 'O' won the game";
       document.getElementById("mainHead").style.visibility = "visible";
     }
   }

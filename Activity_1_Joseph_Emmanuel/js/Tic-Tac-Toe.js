@@ -1,5 +1,6 @@
 let firstUserSelcted;
 let secondUserSelected;
+let xsizeArray = [];
 let totalClicks = 0;
 let clickedButton;
 let xArray = [];
@@ -57,8 +58,50 @@ function clicksDone(card) {
   }
   //   card.style.backgroundColor = "gray";
   card.classList.add("disabled");
-
-  case3Mathches();
+  if (xArray.length == 3 || oArray.length == 3) {
+    case3Mathches();
+  }
+  if (xArray.length == 4) {
+    if (case4Match(xArray)) {
+      document.getElementById("mainHead").innerHTML =
+        "User took 'X' won the game";
+      document.getElementById("mainHead").style.visibility = "visible";
+    }
+  }
+  if (oArray.length == 4) {
+    if (case4Match(oArray)) {
+      document.getElementById("mainHead").innerHTML =
+        "User took 'O' won the game";
+      document.getElementById("mainHead").style.visibility = "visible";
+    }
+  }
+  if (xArray.length === 5) {
+    if (case5Match(xArray)) {
+      document.getElementById("mainHead").innerHTML =
+        "User took 'X' won the game";
+      document.getElementById("mainHead").style.visibility = "visible";
+    } else {
+      document.getElementById("mainHead").innerHTML = "It's a draw";
+      document.getElementById("mainHead").style.visibility = "visible";
+    }
+  }
+  if (oArray.length == 5) {
+    if (case5Match(oArray)) {
+      document.getElementById("mainHead").innerHTML =
+        "User took 'O' won the game";
+      document.getElementById("mainHead").style.visibility = "visible";
+    } else {
+      document.getElementById("mainHead").innerHTML = "It's a draw";
+      document.getElementById("mainHead").style.visibility = "visible";
+    }
+  }
+  // if (xArray.length === 5) {
+  //   if (case5Match(xArray)) {
+  //     document.getElementById("mainHead").innerHTML =
+  //       "User took 'X' won the game";
+  //     document.getElementById("mainHead").style.visibility = "visible";
+  //   }
+  // }
 }
 
 function case3Mathches() {
@@ -75,4 +118,42 @@ function case3Mathches() {
       document.getElementById("mainHead").style.visibility = "visible";
     }
   }
+}
+
+function case4Match(inputArray) {
+  let conditionsMatched = 0;
+  for (let index = 0; index < 8; index++) {
+    conditionsMatched = 0;
+    for (let i = 0; i < 4; i++) {
+      if (winningConditions[index].includes(inputArray[i])) {
+        conditionsMatched++;
+        if (conditionsMatched == 3) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+function case5Match(inputArray) {
+  let conditionsMatched = 0;
+  for (let index = 0; index < 8; index++) {
+    conditionsMatched = 0;
+    for (let i = 0; i < 5; i++) {
+      if (winningConditions[index].includes(inputArray[i])) {
+        conditionsMatched++;
+        if (conditionsMatched == 3) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function arrayLenth(testArray) {
+  let sizeOfArray = 1;
+  testArray.forEach((element) => sizeOfArray++);
+  console.log(sizeOfArray);
+  return sizeOfArray;
 }

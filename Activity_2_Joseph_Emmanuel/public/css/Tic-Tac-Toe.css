@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  background: g;
+}
+#gameBoard {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  margin-left: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+.card {
+  width: calc(33% - 10px);
+  height: calc(33% - 10px);
+  margin: 5px;
+  background-color: beige;
+}
+
+#chooseSymbol {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  margin-right: 10px;
+  margin-left: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+#chooseSymbol > button {
+  width: 100px;
+  height: 100px;
+  margin-right: 50px;
+  background-color: beige;
+}
+h1 {
+  align-content: center;
+  margin: 50px;
+  margin-right: 50px;
+}
+/* #chooseSymbol > button:focus {
+  background-color: yellow;
+} */
+.disabled {
+  /* opacity: 0.6; */
+  cursor: not-allowed;
+  border-radius: 50%;
+  background-color: aqua;
+}
+p {
+  align-content: center;
+}

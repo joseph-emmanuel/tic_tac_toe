@@ -15,7 +15,7 @@ const winningConditions = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-document.getElementById("gameBoard").style.visibility = "hidden";
+// document.getElementById("gameBoard").style.visibility = "hidden";
 document.getElementById("cross").onclick = function () {
   addUserChoice(1);
 };
